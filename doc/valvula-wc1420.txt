@@ -1,0 +1,49 @@
+Tuya.
+
+Chip: CB3S
+
+Datasheet: https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076
+
+Pinout
+
+        _____________
+CEN 1 -|             |- 16 P11
+P23 2 -|    CB3S     |- 15 P10
+CEN 3 -|             |- 14 P7
+P14 4 -|             |- 13 P8
+P26 5 -|             |- 12 P21
+P24 6 -|             |- 11 P0
+P6  7 -|             |- 10 P9
+3V3 8 -|_____________|- 9  GND
+         | | | | | |
+ P23 17 _| | | | | |_ 22 NC
+ P22 18 ___| | | |___ 21 NC
+ P21 19 _____| |_____ 20 P20
+
+Valvula:
+
+En uso:
+3  CEN -> 3.3
+6  P24 -> boton, normal en 3.3v, apretado a 0v.
+7  P6  -> 0v cerrar 3.3v abrir.
+8  3V3
+9  GND
+13 P8 -> Siempre en 0?
+
+
+todo el resto:
+16: 3.3
+15: 3.3
+14: 0
+13: 0
+12: 3.3
+11: 3.3
+10: 0
+ 9: GND
+
+17: 0
+18: 0
+19: 3.3
+20: 0
+21: 0
+22: 0
