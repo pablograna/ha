@@ -4,41 +4,41 @@ Chip: CB3S
 
 Datasheet: https://developer.tuya.com/en/docs/iot/cb3s?id=Kai94mec0s076
 
-Pinout
+Pinout (visto desde arriba)
 
-        _____________
-CEN 1 -|             |- 16 P11
-P23 2 -|    CB3S     |- 15 P10
-CEN 3 -|             |- 14 P7
-P14 4 -|             |- 13 P8
-P26 5 -|             |- 12 P21
-P24 6 -|             |- 11 P0
-P6  7 -|             |- 10 P9
-3V3 8 -|_____________|- 9  GND
-         | | | | | |
- P23 17 _| | | | | |_ 22 NC
- P22 18 ___| | | |___ 21 NC
- P21 19 _____| |_____ 20 P20
+                  _____________
+    RST - CEN 1 -|             |- 16 P11 - TXD0
+    ADC - P23 2 -|    CB3S     |- 15 P10 - RXD0
+     EN - CEN 3 -|             |- 14 P7  - GPIO5
+ GPIO16 - P14 4 -|             |- 13 P8  - GPIO4
+ GPIO14 - P26 5 -|             |- 12 P21 - GPIO0
+ GPIO12 - P24 6 -|             |- 11 P0  - GPIO2
+ GPIO13 - P6  7 -|             |- 10 P9  - GPIO15
+    VCC - 3V3 8 -|_____________|- 9  GND - GND
+                   | | | | | |
+           P23 17 _| | | | | |_ 22 NC
+           P22 18 ___| | | |___ 21 NC
+           P21 19 _____| |_____ 20 P20
 
 Valvula:
 
 En uso:
-3  CEN -> 3.3
-6  P24 -> boton, normal en 3.3v, apretado a 0v.
-7  P6  -> 0v cerrar 3.3v abrir.
+3  CEN -> 3.3 (pull up)
+6  GPIO12: P24 -> boton, normal en 3.3v, apretado a 0v.
+7  GPIO13: P6  -> 0v cerrar 3.3v abrir.
 8  3V3
 9  GND
 13 P8 -> Siempre en 0?
 
 
 todo el resto:
-16: 3.3
+16: 3.3 (pull up)
 15: 3.3
 14: 0
 13: 0
-12: 3.3
+12: 3.3 (pull up)
 11: 3.3
-10: 0
+10: 0   (pull down)
  9: GND
 
 17: 0
@@ -47,3 +47,29 @@ todo el resto:
 20: 0
 21: 0
 22: 0
+
+----
+
+nodemcu v3 esp 8266 mod
+
+                    _____________
+          ADC0  1 -|             |- 28 GPIO16
+           RES  1 -|             |- 27 GPIO5
+           RES  1 -|             |- 26 GPIO4
+         GPIO10 2 -|    CB3S     |- 25 GPIO0
+         GPIO9  3 -|             |- 24 GPIO2
+          MOSI  4 -|             |- 23 3.3
+            CS  5 -|             |- 22 GND
+          MISO  6 -|             |- 21 - D5 - GPIO14
+          SCLK  7 -|             |- 20 - D6 - GPIO12
+          GND   8 -|             |- 19 - D7 - GPIO13
+          3.3v  9 -|             |- 18 GPIO15
+           EN  10 -|             |- 17 GPIO3
+          RST  11 -|             |- 16 GPIO1
+          GND  12 -|             |- 15 GND
+          Vin  13 -|_____________|- 14 3.3v
+                    | | | | | |
+            P23 17 _| | | | | |_ 22 NC
+            P22 18 ___| | | |___ 21 NC
+            P21 19 _____| |_____ 20 P20
+
